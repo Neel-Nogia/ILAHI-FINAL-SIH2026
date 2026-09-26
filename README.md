@@ -119,6 +119,6 @@ VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFz
 ---
 
 ## 👥 Authors & Team
-- **Project Lead**: Neel Nogia ([@Neel-Nogia](https://github.com/Neel-Nogia))
+- **Project Team**: TEAM EKAGRA (ILAHI) ([@Neel-Nogia](https://github.com/Neel-Nogia))
 - **Initiative**: Smart India Hackathon (SIH) 2026
 - **Live Deployment**: [https://ilahi-app.vercel.app](https://ilahi-app.vercel.app)
