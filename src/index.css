@@ -1,0 +1,54 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-display: 'Marcellus', serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    /* Professional Balanced Palette (Section 2) */
+    --color-primary: #B5541C;        /* Terracotta Action */
+    --color-secondary: #7A6C4F;      /* Aged Brass Accent */
+    --color-success: #2F6B4F;        /* Deep Sage Trust */
+    --color-danger: #A32020;         /* Reserved SOS Red */
+    --color-bg-ivory: #FAF6F0;       /* Neutral Warm Ivory */
+    --color-surface-card: #FFFFFF;   /* Clean Card Surface */
+    --color-text-main: #241A12;      /* Primary Text */
+    --color-text-muted: #6B5D4F;     /* Muted Secondary Text */
+  }
+
+  .dark {
+    --color-primary: #E27A3F;
+    --color-secondary: #C9B37E;
+    --color-success: #5FA37D;
+    --color-danger: #E14B4B;
+    --color-bg-ivory: #171310;       /* Near-black warm charcoal */
+    --color-surface-card: #241E19;   /* Dark warm panel */
+    --color-text-main: #F5EEE4;      /* High contrast light text */
+    --color-text-muted: #B0A192;     /* Muted warm grey */
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-sans {
+    font-family: var(--font-sans);
+  }
+}
+
+/* Custom scrollbars for clean app feel */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(160, 140, 120, 0.3);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(160, 140, 120, 0.5);
+}
