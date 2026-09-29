@@ -967,6 +967,11 @@ export const supabaseStore = {
     recipients: string[];
     notes?: string;
     location?: string;
+    latitude?: number;
+    longitude?: number;
+    accuracy?: number;
+    maps_url?: string;
+    tracking_active?: boolean;
   }): SOSEvent {
     const events: SOSEvent[] = JSON.parse(localStorage.getItem(CACHE_KEYS.SOS_EVENTS) || '[]');
     const newEvent: SOSEvent = {
@@ -980,15 +985,22 @@ export const supabaseStore = {
     return newEvent;
   },
 
-  logSOS(bookingId?: string, notes?: string): SOSEvent {
+  logSOS(bookingId?: string, notes?: string, coords?: { latitude: number; longitude: number; accuracy?: number }): SOSEvent {
     const session = this.getCurrentSession();
+    const lat = coords?.latitude ?? 26.9258;
+    const lng = coords?.longitude ?? 75.8237;
     return this.logCustomSOS({
       booking_id: bookingId,
       tourist_name: session?.user.full_name || 'Verified Tourist',
       tourist_phone: session?.touristProfile?.phone || '+91 98765 43210',
       recipients: ['Local Police (112)', 'Emergency Helpline (1363)'],
       notes: notes || 'Immediate emergency alert triggered in heritage corridor',
-      location: 'Active Corridor, Gujarat & Rajasthan'
+      location: coords ? `GPS: ${lat.toFixed(4)}°N, ${lng.toFixed(4)}°E (±${Math.round(coords.accuracy || 10)}m)` : 'Active Corridor, Gujarat & Rajasthan',
+      latitude: lat,
+      longitude: lng,
+      accuracy: coords?.accuracy ?? 10,
+      maps_url: `https://www.google.com/maps?q=${lat},${lng}`,
+      tracking_active: true
     });
   },
 

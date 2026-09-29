@@ -12,6 +12,7 @@ import {
   FileText 
 } from 'lucide-react';
 import { supabaseStore } from '../lib/supabase/client';
+import { LiveSOSMap, LocationCoords } from './LiveSOSMap';
 
 interface SafetyModalProps {
   isOpen: boolean;
@@ -31,10 +32,26 @@ export const SafetyModal: React.FC<SafetyModalProps> = ({
   const [reportReason, setReportReason] = useState('');
   const [reportSubmitted, setReportSubmitted] = useState(false);
 
+  // Live Location
+  const [liveCoords, setLiveCoords] = useState<LocationCoords>({
+    latitude: 26.9239,
+    longitude: 75.8267,
+    accuracy: 10,
+    timestamp: Date.now()
+  });
+
   if (!isOpen) return null;
 
   const handleTriggerSOS = () => {
-    supabaseStore.logSOS(activeBookingId || 'trip-session-live', 'Traveler activated SOS button in Rajasthan/Gujarat corridor');
+    supabaseStore.logSOS(
+      activeBookingId || 'trip-session-live',
+      'Traveler activated emergency SOS button in corridor',
+      {
+        latitude: liveCoords.latitude,
+        longitude: liveCoords.longitude,
+        accuracy: liveCoords.accuracy
+      }
+    );
     setSosTriggered(true);
   };
 
@@ -46,30 +63,33 @@ export const SafetyModal: React.FC<SafetyModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-950/70 backdrop-blur-xs animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-stone-950/70 backdrop-blur-xs animate-in fade-in duration-200">
       <div 
-        className="w-full max-w-lg bg-stone-50 dark:bg-stone-900 rounded-3xl border border-stone-200 dark:border-stone-800 shadow-2xl overflow-hidden max-h-[92vh] flex flex-col"
+        className="w-full max-w-xl bg-stone-50 dark:bg-stone-900 rounded-3xl border border-stone-200 dark:border-stone-800 shadow-2xl overflow-hidden max-h-[94vh] flex flex-col"
         onClick={e => e.stopPropagation()}
       >
         {/* Header */}
         <div className="p-4 border-b border-stone-200 dark:border-stone-800 flex items-center justify-between bg-rose-50/80 dark:bg-rose-950/50">
           <div className="flex items-center gap-2">
             <div className="w-9 h-9 rounded-xl bg-rose-600 text-white flex items-center justify-center font-bold">
-              <ShieldAlert className="w-5 h-5" />
+              <ShieldAlert className="w-5 h-5 animate-pulse" />
             </div>
             <div>
-              <h3 className="font-display text-lg font-bold text-stone-900 dark:text-stone-100">
-                ILAHI Traveler Safety Center
+              <h3 className="font-display text-lg font-bold text-stone-900 dark:text-stone-100 flex items-center gap-2">
+                <span>ILAHI Traveler Safety Center</span>
+                <span className="text-[10px] font-semibold uppercase px-2 py-0.5 rounded-full bg-rose-200 text-rose-900 dark:bg-rose-900 dark:text-rose-200">
+                  Live GPS
+                </span>
               </h3>
               <p className="text-[11px] text-stone-600 dark:text-stone-300">
-                Gujarat & Rajasthan Rapid Support & Trust Assurance
+                Gujarat & Rajasthan Rapid Support & Live Location Shield
               </p>
             </div>
           </div>
 
           <button
             onClick={onClose}
-            className="p-2 min-h-[44px] min-w-[44px] rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 text-stone-500"
+            className="p-2 min-h-[44px] min-w-[44px] rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 text-stone-500 flex items-center justify-center"
             aria-label="Close safety center"
           >
             <X className="w-5 h-5" />
@@ -77,18 +97,28 @@ export const SafetyModal: React.FC<SafetyModalProps> = ({
         </div>
 
         {/* Content */}
-        <div className="p-5 overflow-y-auto space-y-5 text-sm">
-          {/* 1. SOS Emergency Section */}
+        <div className="p-4 sm:p-5 overflow-y-auto space-y-5 text-sm">
+          {/* 1. SOS Emergency Section with Live Map */}
           <div className="p-4 rounded-2xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900 space-y-3">
             <div className="flex items-center justify-between">
               <span className="text-xs font-bold uppercase tracking-wider text-rose-800 dark:text-rose-300 flex items-center gap-1.5">
                 <AlertTriangle className="w-4 h-4 text-rose-600" />
-                Emergency SOS Dispatch
+                Emergency SOS Dispatch & Live Radar
               </span>
               <span className="text-[10px] px-2 py-0.5 rounded-full bg-rose-200/80 dark:bg-rose-900 text-rose-900 dark:text-rose-200 font-semibold">
-                Simulated Sandbox
+                Live Geolocation
               </span>
             </div>
+
+            {/* Embedded Live Map */}
+            <LiveSOSMap
+              initialLat={liveCoords.latitude}
+              initialLng={liveCoords.longitude}
+              touristName="Verified Traveler"
+              touristPhone={trustedPhone}
+              onLocationUpdate={coords => setLiveCoords(coords)}
+              showEmergencyControls={true}
+            />
 
             {sosTriggered ? (
               <div className="p-3.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-300 dark:border-emerald-800 text-emerald-900 dark:text-emerald-200 space-y-1">
@@ -97,7 +127,7 @@ export const SafetyModal: React.FC<SafetyModalProps> = ({
                   <span>SOS Broadcast Logged & Acknowledged</span>
                 </div>
                 <p className="text-[11px] leading-relaxed">
-                  Your coordinates and active guide details have been logged in the safety vault. Trusted contact notified via SMS.
+                  Your coordinates ({liveCoords.latitude.toFixed(4)}°N, {liveCoords.longitude.toFixed(4)}°E) and active guide details have been logged in the safety vault. Trusted contact notified via SMS.
                 </p>
                 <div className="pt-2 flex gap-2">
                   <a
@@ -119,13 +149,13 @@ export const SafetyModal: React.FC<SafetyModalProps> = ({
                   className="w-full py-3 px-4 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-sm transition-transform active:scale-95 min-h-[44px]"
                 >
                   <ShieldAlert className="w-5 h-5 animate-pulse" />
-                  <span>TRIGGER SOS EMERGENCY ALERT</span>
+                  <span>TRIGGER SOS EMERGENCY ALERT WITH LIVE GPS</span>
                 </button>
               </div>
             )}
           </div>
 
-          {/* 2. Live Trip-Sharing Indicator (Step 9) */}
+          {/* 2. Live Trip-Sharing Indicator */}
           <div className="p-4 rounded-2xl bg-amber-50 dark:bg-stone-800/80 border border-amber-200 dark:border-stone-700 space-y-2.5">
             <div className="flex items-center justify-between">
               <span className="text-xs font-bold uppercase tracking-wider text-amber-900 dark:text-amber-300 flex items-center gap-1.5">
@@ -191,7 +221,7 @@ export const SafetyModal: React.FC<SafetyModalProps> = ({
             </div>
           </div>
 
-          {/* 4. Guide Reporting Affordance (Step 9) */}
+          {/* 4. Guide Reporting Affordance */}
           <div className="p-4 rounded-2xl bg-stone-100 dark:bg-stone-800/60 border border-stone-200 dark:border-stone-700 space-y-2.5">
             <h4 className="text-xs font-bold uppercase tracking-wider text-stone-700 dark:text-stone-300 flex items-center gap-1.5">
               <FileText className="w-4 h-4 text-stone-500" />

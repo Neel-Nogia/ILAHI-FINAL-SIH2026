@@ -174,6 +174,11 @@ export interface SOSEvent {
   status: 'DISPATCHED' | 'ACKNOWLEDGED' | 'RESOLVED';
   notes?: string;
   location?: string;
+  latitude?: number;
+  longitude?: number;
+  accuracy?: number;
+  maps_url?: string;
+  tracking_active?: boolean;
 }
 
 export interface MatchCriteria {
