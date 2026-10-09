@@ -8,7 +8,7 @@
 
 ---
 
-## 🚀 Live Links
+## 🚀 Live Links:
 - **Production URL (Vercel):** [https://ilahi-app.vercel.app](https://ilahi-app.vercel.app)
 - **GitHub Repository:** [https://github.com/Neel-Nogia/ILAHI-FINAL-SIH2026](https://github.com/Neel-Nogia/ILAHI-FINAL-SIH2026)
 - **Supabase Cloud Project:** `https://oaxausoyvwxlhswnfhvq.supabase.co`
