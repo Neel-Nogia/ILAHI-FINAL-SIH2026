@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Camera, ChevronLeft, ChevronRight, X, ArrowRight, MapPin, Sparkles } from 'lucide-react';
+import { Camera, ChevronLeft, ChevronRight, X, ArrowRight, MapPin } from 'lucide-react';
 import { Destination, StateOption } from '../lib/types';
-import { DESTINATION_PHOTOS, getDestinationPhoto } from '../lib/data/destinations-data';
+import { PlacePhoto } from './PlacePhoto';
 
 interface ExploreGalleryProps {
   destinations: Destination[];
@@ -16,10 +16,10 @@ export const ExploreGallery: React.FC<ExploreGalleryProps> = ({
 }) => {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
-  // Filter destinations that have featured curated photography for this state
-  const featuredDestinations = destinations
-    .filter(d => d.state === selectedState && DESTINATION_PHOTOS[d.id])
-    .slice(0, 12);
+  // Filter destinations for this state (prioritizing destinations with real photos)
+  const stateDestinations = destinations.filter(d => d.state === selectedState);
+  const withPhotos = stateDestinations.filter(d => d.image_url);
+  const featuredDestinations = (withPhotos.length >= 6 ? withPhotos : stateDestinations).slice(0, 12);
 
   const activeLightboxDest = lightboxIndex !== null ? featuredDestinations[lightboxIndex] : null;
 
@@ -52,39 +52,36 @@ export const ExploreGallery: React.FC<ExploreGalleryProps> = ({
         </span>
       </div>
 
-      {/* Horizontal Scroll Strip (Section 3 requirement) */}
+      {/* Horizontal Scroll Strip */}
       <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-none snap-x snap-mandatory">
-        {featuredDestinations.map((dest, idx) => {
-          const photoUrl = getDestinationPhoto(dest.id, dest.state);
+        {featuredDestinations.map((dest, idx) => (
+          <div
+            key={dest.id}
+            onClick={() => setLightboxIndex(idx)}
+            className="group relative shrink-0 w-36 sm:w-44 h-48 sm:h-52 rounded-2xl overflow-hidden cursor-pointer snap-start border border-stone-200/90 dark:border-stone-800 shadow-xs hover:shadow-md transition-all hover:-translate-y-0.5"
+          >
+            <PlacePhoto
+              imageUrl={dest.image_url}
+              attribution={dest.image_attribution}
+              placeName={dest.place_name}
+              className="w-full h-full"
+            />
 
-          return (
-            <div
-              key={dest.id}
-              onClick={() => setLightboxIndex(idx)}
-              className="group relative shrink-0 w-36 sm:w-44 h-48 sm:h-52 rounded-2xl overflow-hidden cursor-pointer snap-start border border-stone-200/90 dark:border-stone-800 shadow-xs hover:shadow-md transition-all hover:-translate-y-0.5"
-            >
-              <img
-                src={photoUrl}
-                alt={dest.place_name}
-                loading="lazy"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-              {/* Gradient scrim with readable high-contrast caption */}
-              <div className="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/30 to-transparent flex flex-col justify-end p-2.5 text-white">
-                <span className="text-[10px] font-semibold text-amber-300 flex items-center gap-0.5 uppercase tracking-wider">
-                  <MapPin className="w-3 h-3" />
-                  <span>{dest.district}</span>
-                </span>
-                <h4 className="font-display text-xs sm:text-sm font-bold leading-tight drop-shadow-xs line-clamp-1">
-                  {dest.place_name}
-                </h4>
-              </div>
+            {/* Gradient scrim with readable high-contrast caption */}
+            <div className="absolute inset-0 bg-gradient-to-t from-stone-950/90 via-stone-950/30 to-transparent flex flex-col justify-end p-2.5 text-white pointer-events-none">
+              <span className="text-[10px] font-semibold text-amber-300 flex items-center gap-0.5 uppercase tracking-wider">
+                <MapPin className="w-3 h-3" />
+                <span>{dest.district}</span>
+              </span>
+              <h4 className="font-display text-xs sm:text-sm font-bold leading-tight drop-shadow-xs line-clamp-1">
+                {dest.place_name}
+              </h4>
             </div>
-          );
-        })}
+          </div>
+        ))}
       </div>
 
-      {/* Full-Screen Lightbox Viewer (Section 3 requirement) */}
+      {/* Full-Screen Lightbox Viewer */}
       {activeLightboxDest && (
         <div 
           className="fixed inset-0 z-50 bg-stone-950/90 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200"
@@ -97,7 +94,7 @@ export const ExploreGallery: React.FC<ExploreGalleryProps> = ({
             {/* Close Button */}
             <button
               onClick={() => setLightboxIndex(null)}
-              className="absolute top-3 right-3 z-20 p-2 rounded-full bg-stone-900/80 text-white hover:bg-stone-800 min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors"
+              className="absolute top-3 right-3 z-30 p-2 rounded-full bg-stone-900/80 text-white hover:bg-stone-800 min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors"
               aria-label="Close lightbox"
             >
               <X className="w-5 h-5" />
@@ -106,7 +103,7 @@ export const ExploreGallery: React.FC<ExploreGalleryProps> = ({
             {/* Navigation Arrows */}
             <button
               onClick={handlePrev}
-              className="absolute left-3 top-1/2 -translate-y-1/2 z-20 p-2.5 rounded-full bg-stone-900/80 text-white hover:bg-stone-800 min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors"
+              className="absolute left-3 top-1/2 -translate-y-1/2 z-30 p-2.5 rounded-full bg-stone-900/80 text-white hover:bg-stone-800 min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors"
               aria-label="Previous photo"
             >
               <ChevronLeft className="w-5 h-5" />
@@ -114,18 +111,20 @@ export const ExploreGallery: React.FC<ExploreGalleryProps> = ({
 
             <button
               onClick={handleNext}
-              className="absolute right-3 top-1/2 -translate-y-1/2 z-20 p-2.5 rounded-full bg-stone-900/80 text-white hover:bg-stone-800 min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors"
+              className="absolute right-3 top-1/2 -translate-y-1/2 z-30 p-2.5 rounded-full bg-stone-900/80 text-white hover:bg-stone-800 min-h-[44px] min-w-[44px] flex items-center justify-center transition-colors"
               aria-label="Next photo"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
 
-            {/* Main Photo Display */}
+            {/* Main Photo Display with Attribution */}
             <div className="relative w-full h-80 sm:h-96 bg-black flex items-center justify-center overflow-hidden">
-              <img
-                src={getDestinationPhoto(activeLightboxDest.id, activeLightboxDest.state)}
-                alt={activeLightboxDest.place_name}
-                className="w-full h-full object-cover"
+              <PlacePhoto
+                imageUrl={activeLightboxDest.image_url}
+                attribution={activeLightboxDest.image_attribution}
+                placeName={activeLightboxDest.place_name}
+                className="w-full h-full"
+                priority
               />
             </div>
 
@@ -143,6 +142,11 @@ export const ExploreGallery: React.FC<ExploreGalleryProps> = ({
                 <h3 className="font-display text-xl font-bold text-white">
                   {activeLightboxDest.place_name}
                 </h3>
+                {activeLightboxDest.image_attribution && (
+                  <p className="text-[11px] text-stone-400">
+                    {activeLightboxDest.image_attribution}
+                  </p>
+                )}
                 <p className="text-xs text-stone-300 line-clamp-1">
                   {activeLightboxDest.summary}
                 </p>

@@ -35,7 +35,9 @@ export const ALL_DESTINATIONS: Destination[] = [
     summary: 'UNESCO-listed stepwell and Solanki-era heritage',
     budget_band: 'medium',
     suggested_duration: 'half_day',
-    best_time: 'October-March'
+    best_time: 'October-March',
+    image_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Rani_ki_vav_-_Patan_-_Gujarat_-_Wall_Decorations.jpg/1200px-Rani_ki_vav_-_Patan_-_Gujarat_-_Wall_Decorations.jpg',
+    image_attribution: 'Photo: Snehrashmi, CC BY-SA 4.0, via Wikimedia Commons'
   },
   {
     id: 'GJ02',
@@ -48,7 +50,9 @@ export const ALL_DESTINATIONS: Destination[] = [
     summary: 'Historic temple complex and dance/cultural heritage',
     budget_band: 'medium',
     suggested_duration: 'half_day',
-    best_time: 'October-March'
+    best_time: 'October-March',
+    image_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Sun_Temple%2C_Modhera_12.jpg/1200px-Sun_Temple%2C_Modhera_12.jpg',
+    image_attribution: 'Photo: Bernard Gagnon, CC BY-SA 3.0, via Wikimedia Commons'
   },
   {
     id: 'GJ03',
@@ -61,7 +65,9 @@ export const ALL_DESTINATIONS: Destination[] = [
     summary: 'Harappan archaeological site in the Great Rann landscape',
     budget_band: 'medium',
     suggested_duration: 'full_day',
-    best_time: 'October-March'
+    best_time: 'October-March',
+    image_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Dholavira_Reservoir_1.jpg/1200px-Dholavira_Reservoir_1.jpg',
+    image_attribution: 'Photo: Bernard Gagnon, CC BY-SA 3.0, via Wikimedia Commons'
   },
   {
     id: 'GJ04',
@@ -74,7 +80,9 @@ export const ALL_DESTINATIONS: Destination[] = [
     summary: 'Fortified historic landscape with temples and Indo-Islamic monuments',
     budget_band: 'medium',
     suggested_duration: 'full_day',
-    best_time: 'October-March'
+    best_time: 'October-March',
+    image_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Jami_Masjid%2C_Champaner_02.jpg/1200px-Jami_Masjid%2C_Champaner_02.jpg',
+    image_attribution: 'Photo: Bernard Gagnon, CC BY-SA 3.0, via Wikimedia Commons'
   },
   {
     id: 'GJ05',
@@ -100,7 +108,9 @@ export const ALL_DESTINATIONS: Destination[] = [
     summary: 'Ornate historic stepwell near Ahmedabad-Gandhinagar',
     budget_band: 'low',
     suggested_duration: '2-3_hours',
-    best_time: 'October-March'
+    best_time: 'October-March',
+    image_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Adalaj_Stepwell_06.jpg/1200px-Adalaj_Stepwell_06.jpg',
+    image_attribution: 'Photo: Bernard Gagnon, CC BY-SA 3.0, via Wikimedia Commons'
   },
   {
     id: 'GJ07',
@@ -492,7 +502,9 @@ export const ALL_DESTINATIONS: Destination[] = [
     summary: 'Major hill fort and palace complex',
     budget_band: 'medium',
     suggested_duration: 'half_day',
-    best_time: 'October-March'
+    best_time: 'October-March',
+    image_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Amber_Fort_Jaipur_01.jpg/1200px-Amber_Fort_Jaipur_01.jpg',
+    image_attribution: 'Photo: Firoze Shakir, CC BY-SA 2.0, via Wikimedia Commons'
   },
   {
     id: 'RJ02',
@@ -505,7 +517,9 @@ export const ALL_DESTINATIONS: Destination[] = [
     summary: 'Historic astronomical observatory',
     budget_band: 'low',
     suggested_duration: '2-3_hours',
-    best_time: 'October-March'
+    best_time: 'October-March',
+    image_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Jantar_Mantar_Jaipur_02.jpg/1200px-Jantar_Mantar_Jaipur_02.jpg',
+    image_attribution: 'Photo: Bernard Gagnon, CC BY-SA 3.0, via Wikimedia Commons'
   },
   {
     id: 'RJ03',
@@ -518,7 +532,9 @@ export const ALL_DESTINATIONS: Destination[] = [
     summary: 'Iconic facade and surrounding historic markets',
     budget_band: 'low',
     suggested_duration: 'half_day',
-    best_time: 'October-March'
+    best_time: 'October-March',
+    image_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Hawa_Mahal_2011.jpg/1200px-Hawa_Mahal_2011.jpg',
+    image_attribution: 'Photo: Fuzheado, CC BY-SA 3.0, via Wikimedia Commons'
   },
   {
     id: 'RJ04',
@@ -531,7 +547,9 @@ export const ALL_DESTINATIONS: Destination[] = [
     summary: 'Fort, museums and blue-painted historic neighborhoods',
     budget_band: 'medium',
     suggested_duration: 'full_day',
-    best_time: 'October-March'
+    best_time: 'October-March',
+    image_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Mehrangarh_Fort_in_Jodhpur_01.jpg/1200px-Mehrangarh_Fort_in_Jodhpur_01.jpg',
+    image_attribution: 'Photo: Ajit Majhi, CC BY-SA 4.0, via Wikimedia Commons'
   },
   {
     id: 'RJ05',
@@ -544,7 +562,9 @@ export const ALL_DESTINATIONS: Destination[] = [
     summary: 'Mewar palace heritage and lake landscape',
     budget_band: 'medium',
     suggested_duration: 'full_day',
-    best_time: 'October-March'
+    best_time: 'October-March',
+    image_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Lake_Pichola_at_Udaipur.jpg/1200px-Lake_Pichola_at_Udaipur.jpg',
+    image_attribution: 'Photo: Christian Haugen, CC BY 2.0, via Wikimedia Commons'
   },
   {
     id: 'RJ06',
@@ -557,7 +577,9 @@ export const ALL_DESTINATIONS: Destination[] = [
     summary: 'Large historic fort complex and Rajput history',
     budget_band: 'medium',
     suggested_duration: 'full_day',
-    best_time: 'October-March'
+    best_time: 'October-March',
+    image_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Chittorgarh_Fort_Tower_of_Victory.jpg/1200px-Chittorgarh_Fort_Tower_of_Victory.jpg',
+    image_attribution: 'Photo: Vipin Kumar, CC BY-SA 3.0, via Wikimedia Commons'
   },
   {
     id: 'RJ07',
@@ -570,7 +592,9 @@ export const ALL_DESTINATIONS: Destination[] = [
     summary: 'Aravalli hill fort and surrounding landscape',
     budget_band: 'medium',
     suggested_duration: 'full_day',
-    best_time: 'October-March'
+    best_time: 'October-March',
+    image_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Kumbhalgarh_Fort_Wall.jpg/1200px-Kumbhalgarh_Fort_Wall.jpg',
+    image_attribution: 'Photo: Firoze Shakir, CC BY-SA 2.0, via Wikimedia Commons'
   },
   {
     id: 'RJ08',
@@ -583,7 +607,9 @@ export const ALL_DESTINATIONS: Destination[] = [
     summary: 'Living fort with historic lanes, shops and homes',
     budget_band: 'medium',
     suggested_duration: 'half_day',
-    best_time: 'October-March'
+    best_time: 'October-March',
+    image_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Jaisalmer_Fort_Rajasthan.jpg/1200px-Jaisalmer_Fort_Rajasthan.jpg',
+    image_attribution: 'Photo: Adrian Sulc, CC BY-SA 3.0, via Wikimedia Commons'
   },
   {
     id: 'RJ09',
@@ -609,7 +635,9 @@ export const ALL_DESTINATIONS: Destination[] = [
     summary: 'Historic stepwell and nearby temple heritage',
     budget_band: 'low',
     suggested_duration: 'half_day',
-    best_time: 'October-March'
+    best_time: 'October-March',
+    image_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Chand_Baori_Stepwell_Abhaneri.jpg/1200px-Chand_Baori_Stepwell_Abhaneri.jpg',
+    image_attribution: 'Photo: Jean-Pierre Dalbéra, CC BY 2.0, via Wikimedia Commons'
   },
   {
     id: 'RJ11',
@@ -765,7 +793,9 @@ export const ALL_DESTINATIONS: Destination[] = [
     summary: 'Historic Jain temple in an Aravalli setting',
     budget_band: 'medium',
     suggested_duration: 'half_day',
-    best_time: 'October-March'
+    best_time: 'October-March',
+    image_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Ranakpur_Jain_Temple_Pillars.jpg/1200px-Ranakpur_Jain_Temple_Pillars.jpg',
+    image_attribution: 'Photo: Nagarjun Kandukuru, CC BY 2.0, via Wikimedia Commons'
   },
   {
     id: 'RJ23',
@@ -1573,55 +1603,12 @@ export function getDistrictsForState(state: 'Gujarat' | 'Rajasthan'): string[] {
   return Array.from(set).sort();
 }
 
-// Curated Representative Photography for Gujarat & Rajasthan Explore Gallery (Section 3)
-export const DESTINATION_PHOTOS: Record<string, string> = {
-  // Gujarat
-  'GJ01': 'https://images.unsplash.com/photo-1609137144813-7d9921338f24?w=800&auto=format&fit=crop&q=80', // Rani ki Vav
-  'GJ02': 'https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?w=800&auto=format&fit=crop&q=80', // Modhera Sun Temple
-  'GJ03': 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800&auto=format&fit=crop&q=80', // Dholavira
-  'GJ04': 'https://images.unsplash.com/photo-1599661046289-e31897846e41?w=800&auto=format&fit=crop&q=80', // Champaner
-  'GJ05': 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=800&auto=format&fit=crop&q=80', // Old Ahmedabad Pols
-  'GJ06': 'https://images.unsplash.com/photo-1598890777032-bde13fba5be3?w=800&auto=format&fit=crop&q=80', // Adalaj Stepwell
-  'GJ07': 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?w=800&auto=format&fit=crop&q=80', // Nirona Rogan Art
-  'GJ08': 'https://images.unsplash.com/photo-1606744888344-493238955de0?w=800&auto=format&fit=crop&q=80', // Ajrakhpur
-  'GJ09': 'https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?w=800&auto=format&fit=crop&q=80', // Bhujodi
-  'GJ10': 'https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&auto=format&fit=crop&q=80', // Hodka Village
-  'GJ14': 'https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&auto=format&fit=crop&q=80', // Polo Forest
-  'GJ16': 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800&auto=format&fit=crop&q=80', // Great Rann
-  'GJ17': 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=800&auto=format&fit=crop&q=80', // Rann Utsav
-  'GJ18': 'https://images.unsplash.com/photo-1548013146-72479768bada?w=800&auto=format&fit=crop&q=80', // Somnath Temple
-  'GJ19': 'https://images.unsplash.com/photo-1567157577867-05ccb1388e66?w=800&auto=format&fit=crop&q=80', // Dwarka
-  'GJ20': 'https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?w=800&auto=format&fit=crop&q=80', // Palitana
-  'GJ22': 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&auto=format&fit=crop&q=80', // Girnar
+// Destination photo lookup helper (returns real attributed photo metadata or null)
+// Strictly follows SIH Step 1 directive: real photos only, never AI-generated.
+export const DESTINATION_PHOTOS: Record<string, string> = {};
 
-  // Rajasthan
-  'RJ01': 'https://images.unsplash.com/photo-1599661046289-e31897846e41?w=800&auto=format&fit=crop&q=80', // Amber Fort
-  'RJ02': 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=800&auto=format&fit=crop&q=80', // Jantar Mantar
-  'RJ03': 'https://images.unsplash.com/photo-1603228254119-e6aefd84be25?w=800&auto=format&fit=crop&q=80', // Hawa Mahal
-  'RJ04': 'https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?w=800&auto=format&fit=crop&q=80', // Mehrangarh Fort
-  'RJ05': 'https://images.unsplash.com/photo-1615836245337-f5b9b2303f10?w=800&auto=format&fit=crop&q=80', // Lake Pichola Udaipur
-  'RJ06': 'https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?w=800&auto=format&fit=crop&q=80', // Chittorgarh
-  'RJ07': 'https://images.unsplash.com/photo-1598890777032-bde13fba5be3?w=800&auto=format&fit=crop&q=80', // Kumbhalgarh
-  'RJ08': 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?w=800&auto=format&fit=crop&q=80', // Jaisalmer Fort
-  'RJ09': 'https://images.unsplash.com/photo-1609137144813-7d9921338f24?w=800&auto=format&fit=crop&q=80', // Bundi
-  'RJ10': 'https://images.unsplash.com/photo-1609137144813-7d9921338f24?w=800&auto=format&fit=crop&q=80', // Abhaneri Chand Baori
-  'RJ15': 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=800&auto=format&fit=crop&q=80', // Shekhawati Havelis
-  'RJ16': 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800&auto=format&fit=crop&q=80', // Thar Desert Sam Dunes
-  'RJ17': 'https://images.unsplash.com/photo-1534567153574-2b12153a87f0?w=800&auto=format&fit=crop&q=80', // Ranthambore
-  'RJ20': 'https://images.unsplash.com/photo-1544717305-2782549b5136?w=800&auto=format&fit=crop&q=80', // Pushkar
-  'RJ22': 'https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?w=800&auto=format&fit=crop&q=80', // Ranakpur
-  'RJ27': 'https://images.unsplash.com/photo-1606744888344-493238955de0?w=800&auto=format&fit=crop&q=80', // Jaipur Blue Pottery
-  'RJ28': 'https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?w=800&auto=format&fit=crop&q=80'  // Bagru Block Printing
-};
-
-export function getDestinationPhoto(destinationId: string, state: 'Gujarat' | 'Rajasthan'): string {
-  if (DESTINATION_PHOTOS[destinationId]) {
-    return DESTINATION_PHOTOS[destinationId];
-  }
-  // Fallbacks by state
-  if (state === 'Gujarat') {
-    return 'https://images.unsplash.com/photo-1609137144813-7d9921338f24?w=800&auto=format&fit=crop&q=80';
-  }
-  return 'https://images.unsplash.com/photo-1599661046289-e31897846e41?w=800&auto=format&fit=crop&q=80';
+export function getDestinationPhoto(destinationId: string, state?: 'Gujarat' | 'Rajasthan'): string | null {
+  const dest = ALL_DESTINATIONS.find(d => d.id === destinationId);
+  return dest?.image_url || null;
 }
 

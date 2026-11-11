@@ -36,12 +36,7 @@ const PREDEFINED_SAFETY_PREFS = [
   'Local police verified', 'Red Cross first-aid', 'Group-friendly', 'Daylight-only'
 ];
 
-const AVATAR_PRESETS = [
-  'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&auto=format&fit=crop&q=80',
-  'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=80',
-  'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&auto=format&fit=crop&q=80',
-  'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&auto=format&fit=crop&q=80'
-];
+
 
 export const AuthGateView: React.FC<AuthGateViewProps> = ({ onAuthSuccess }) => {
   // Mode: Sign In or Sign Up
@@ -503,18 +498,6 @@ export const AuthGateView: React.FC<AuthGateViewProps> = ({ onAuthSuccess }) => 
                         Keep Blank
                       </button>
                     )}
-                  </div>
-                  <div className="flex gap-1 items-center">
-                    <span className="text-[10px] text-stone-400">Presets:</span>
-                    {AVATAR_PRESETS.map((preset, idx) => (
-                      <img
-                        key={idx}
-                        src={preset}
-                        onClick={() => setTouristPhoto(preset)}
-                        alt="Preset"
-                        className="w-5 h-5 rounded-full object-cover cursor-pointer border hover:scale-110 transition-transform"
-                      />
-                    ))}
                   </div>
                 </div>
               </div>

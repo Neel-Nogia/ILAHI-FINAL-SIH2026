@@ -113,6 +113,7 @@ export interface Destination {
   suggested_duration: string;
   best_time: string;
   image_url?: string;
+  image_attribution?: string;
 }
 
 export interface HiddenGemSpot {
@@ -129,6 +130,7 @@ export interface HiddenGemSpot {
   best_time: string;
   linked_main_place_name?: string | null;
   image_url?: string;
+  image_attribution?: string;
 }
 
 export interface Booking {

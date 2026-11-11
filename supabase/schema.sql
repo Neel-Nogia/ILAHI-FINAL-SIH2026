@@ -66,7 +66,8 @@ create table if not exists destinations (
   budget_band text check (budget_band in ('low','medium','high')),
   suggested_duration text,
   best_time text,
-  image_url text
+  image_url text,
+  image_attribution text
 );
 
 create table if not exists hidden_gems (
@@ -82,7 +83,8 @@ create table if not exists hidden_gems (
   suggested_duration text,
   best_time text,
   linked_main_place_name text,
-  image_url text
+  image_url text,
+  image_attribution text
 );
 
 -- ============ 5. BOOKINGS TABLE ============

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, Sparkles, MapPin, Clock, Calendar, IndianRupee, Compass, ChevronDown, ChevronUp, ArrowRight } from 'lucide-react';
 import { Destination, HiddenGemSpot } from '../lib/types';
+import { PlacePhoto } from './PlacePhoto';
 
 interface DestinationDetailModalProps {
   destination: Destination | null;
@@ -56,6 +57,14 @@ export const DestinationDetailModal: React.FC<DestinationDetailModalProps> = ({
 
         {/* Scrollable Content */}
         <div className="p-5 overflow-y-auto space-y-5">
+          {/* Destination Real Photo with Attribution */}
+          <PlacePhoto
+            imageUrl={destination.image_url}
+            attribution={destination.image_attribution}
+            placeName={destination.place_name}
+            className="w-full h-48 sm:h-56 rounded-2xl"
+          />
+
           {/* Summary */}
           <div>
             <h4 className="text-xs font-bold uppercase tracking-wider text-stone-500 dark:text-stone-400 mb-1.5">

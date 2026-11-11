@@ -15,6 +15,7 @@ import { Destination, HiddenGemSpot, StateOption, BudgetBand } from '../lib/type
 import { supabaseStore } from '../lib/supabase/client';
 import { OFFICIAL_CATEGORIES, getDistrictsForState } from '../lib/data/destinations-data';
 import { ExploreGallery } from '../components/ExploreGallery';
+import { PlacePhoto } from '../components/PlacePhoto';
 
 interface ExploreViewProps {
   selectedState: StateOption;
@@ -252,6 +253,15 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
               className="p-5 rounded-3xl bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-800 hover:border-amber-600 dark:hover:border-amber-500 transition-all flex flex-col justify-between group"
             >
               <div className="space-y-2.5">
+                {/* Real Attributed Photograph or Neutral Placeholder */}
+                <PlacePhoto
+                  imageUrl={dest.image_url}
+                  attribution={dest.image_attribution}
+                  placeName={dest.place_name}
+                  className="w-full h-40 rounded-2xl mb-2 cursor-pointer"
+                  onClick={() => onOpenDetail(dest)}
+                />
+
                 {/* District & Hidden Gem Badge */}
                 <div className="flex items-center justify-between gap-2">
                   <span className="text-[11px] font-bold uppercase tracking-wider text-amber-800 dark:text-amber-400 flex items-center gap-1">
